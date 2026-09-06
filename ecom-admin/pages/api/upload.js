@@ -7,8 +7,8 @@ import {isAdminRequest} from "@/pages/api/auth/[...nextauth]";
 const containerName = 'ecom-admin-container';
 
 export default async function handle(req,res) {
-//   await mongooseConnect();
-//   await isAdminRequest(req,res);
+  await mongooseConnect();
+  await isAdminRequest(req,res);
 
   const form = new multiparty.Form();
   const {fields,files} = await new Promise((resolve,reject) => {
@@ -25,8 +25,8 @@ export default async function handle(req,res) {
     //   secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
 //     },
 //   });
-  const sasToken = process.env.NEXT_PUBLIC_STORAGESASTOKEN;
-  const storageAccountName = process.env.NEXT_PUBLIC_STORAGERESOURCENAME;
+  const sasToken = process.env.NEXT_PRIVATE_STORAGESASTOKEN;
+  const storageAccountName = process.env.NEXT_PRIVATE_STORAGERESOURCENAME;
 
   const blobService = new BlobServiceClient(
     `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`

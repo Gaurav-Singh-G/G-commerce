@@ -4,7 +4,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import {getServerSession} from "next-auth";
 import clientPromise from "../../../lib/mongodb"
 // import EmailProvider from 'next-auth/providers/email'
-const adminEmails = ['gaurav13579abc@gmail.com'];
+const adminEmails = ['gaurav13579abc@gmail.com','gaurav13579gsc@gmail.com'];
 
 export const authOptions={
   providers: [

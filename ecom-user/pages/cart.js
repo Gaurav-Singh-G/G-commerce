@@ -12,7 +12,7 @@ const ColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   @media screen and (min-width: 768px) {
-    grid-template-columns: 1.2fr .8fr;
+    grid-template-columns: 1.2fr 0.7fr;
   }
   gap: 40px;
   margin-top: 40px;
@@ -169,7 +169,7 @@ export default function CartPage() {
                           onClick={() => moreOfThisProduct(product._id)}>+</Button>
                       </td>
                       <td>
-                        ${cartProducts.filter(id => id === product._id).length * product.price}
+                        ₹{cartProducts.filter(id => id === product._id).length * product.price}
                       </td>
                     </tr>
                   ))}
@@ -178,7 +178,7 @@ export default function CartPage() {
                         <h3>Grand Total</h3>    
                     </td>
                     <td></td>
-                    <td>${total}</td>
+                    <td>₹{total}</td>
                   </tr>
                 </tbody>
               </Table>

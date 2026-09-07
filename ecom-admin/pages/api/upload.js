@@ -3,12 +3,12 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import fs from 'fs';
 import mime from 'mime-types';
 import {mongooseConnect} from "@/lib/mongoose";
-import {isAdminRequest} from "@/pages/api/auth/[...nextauth]";
+import {authorizeAdminRequest} from "@/lib/authorizeAdminRequest";
 const containerName = 'ecom-admin-container';
 
 export default async function handle(req,res) {
   await mongooseConnect();
-  await isAdminRequest(req,res);
+  await authorizeAdminRequest(req,res);
 
   const form = new multiparty.Form();
   const {fields,files} = await new Promise((resolve,reject) => {

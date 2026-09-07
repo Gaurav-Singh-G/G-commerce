@@ -122,6 +122,9 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 MONGODB_URI=your_mongodb_connection_string
 NEXTAUTH_SECRET=your_secret
 NEXTAUTH_URL=http://localhost:3001
+GOOGLE_ID=your_google_client_id
+GOOGLE_SECRET=your_google_client_secret
+ADMIN_EMAILS=admin@example.com
 STORAGE_SAS_TOKEN=your_azure_sas_token
 STORAGE_RESOURCE_NAME=your_azure_storage_account_name
 ```

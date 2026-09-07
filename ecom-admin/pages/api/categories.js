@@ -1,6 +1,6 @@
 import {Category} from "@/models/Category";
 import {mongooseConnect} from "@/lib/mongoose";
-import {authOptions, isAdminRequest} from "@/pages/api/auth/[...nextauth]";
+import {authorizeAdminRequest} from "@/lib/authorizeAdminRequest";
 
 export default async function handle(req, res) {
   const {method} = req;
@@ -8,7 +8,7 @@ export default async function handle(req, res) {
   } catch(err) {
     console.log(err)
   }
-  await isAdminRequest(req,res);
+  await authorizeAdminRequest(req,res);
 
   if (method === 'GET') {
     res.json(await Category.find().populate('parent')
